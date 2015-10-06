@@ -36,3 +36,13 @@ test('should work even if two vars are next to each other', function (t) {
 
   t.equal(res, 'Foobar, my name is')
 })
+
+test('should work if there is whitespace inside replacement', function (t) {
+  t.plan(1)
+
+  const str = '{{ first }}'
+  const ctx = { first: 'rofl' }
+  const res = maxstache(str, ctx)
+
+  t.equal(res, 'rofl')
+})
